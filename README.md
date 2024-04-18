@@ -1,17 +1,17 @@
 # CrowdSec-Easy-Installation-Ubuntu
 
 ## Introduction
-This guide provides easy installation steps for setting up CrowdSec on a Ubuntu system. CrowdSec is an open-source cybersecurity tool designed to protect servers, containers, and cloud workloads from malicious activities.
+🔒 This guide provides easy installation steps for setting up CrowdSec on a Ubuntu system. CrowdSec is an open-source cybersecurity tool designed to protect servers, containers, and cloud workloads from malicious activities.
 
 ### Prerequisites
-- Ensure that your system is running a compatible Linux distribution.
-- Have sudo privileges or access to the root account.
-- The system must be connected to the internet to download necessary packages.
+🔑 Ensure that your system is running a compatible Linux distribution.
+🔓 Have sudo privileges or access to the root account.
+🌐 The system must be connected to the internet to download necessary packages.
 
 ## Installation Steps
 
 ### I. Visit the CrowdSec Website
-- Navigate to the CrowdSec website and select the Linux option.
+🌐 Navigate to the CrowdSec website and select the Linux option.
 
 ### II. Install Repositories
 1. Update the package list:
@@ -50,7 +50,6 @@ This guide provides easy installation steps for setting up CrowdSec on a Ubuntu 
     ```
 3. Remove the CIDR lines for allowed IP ranges:
     ```
- 
     - "192.168.0.0/16"
     - "10.0.0.0/8"
     - "172.16.0.0/12"
@@ -73,14 +72,16 @@ This guide provides easy installation steps for setting up CrowdSec on a Ubuntu 
     ```
     sudo cscli alerts list
     ```
-5. To view  detected decisions by the bouncer, use the following command:
+
+5. To view detected decisions by the bouncer, use the following command:
     ```
     sudo cscli decisions list
     ```
- 6. **Optional: Integrate with CrowdSec Website**
+
+6. **Optional: Integrate with CrowdSec Website**
     - Create an account on the CrowdSec website.
     - On the website, click on the "plus" icon at the top right of the screen to enroll a node.
     - Copy and paste the displayed command on your CrowdSec server to send data to the website and collect data via Prometheus integrated into CrowdSec.
 
 ## Conclusion
-You have successfully installed and configured CrowdSec on your system. You can now enjoy enhanced security and protection against malicious activities.
+✅ You have successfully installed and configured CrowdSec on your system. You can now enjoy enhanced security and protection against malicious activities.
