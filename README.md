@@ -71,8 +71,11 @@ This guide provides easy installation steps for setting up CrowdSec on a Linux s
 
 4. To view detected alerts, use the following command:
     ```
-    [Command to view alerts]
+    sudo cscli alerts list
     ```
-
+5. To view  detected decisions by the bouncer, use the following command:
+```
+sudo cscli decisions list
+```
 ## Conclusion
 You have successfully installed and configured CrowdSec on your system. You can now enjoy enhanced security and protection against malicious activities.
