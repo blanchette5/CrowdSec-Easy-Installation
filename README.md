@@ -1,4 +1,4 @@
-# CrowdSec-Easy-Installation-Ubuntu
+# **CrowdSec-Easy-Installation-Ubuntu**
 
 ## Introduction
 🔒 This guide provides easy installation steps for setting up CrowdSec on a Ubuntu system. CrowdSec is an open-source cybersecurity tool designed to protect servers, containers, and cloud workloads from malicious activities.
@@ -85,3 +85,6 @@
 
 ## Conclusion
 ✅ You have successfully installed and configured CrowdSec on your system. You can now enjoy enhanced security and protection against malicious activities.
+
+## Author
+👩‍💻 This guide was authored by [blanchette5](https://github.com/blanchette5).
