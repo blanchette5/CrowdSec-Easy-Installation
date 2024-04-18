@@ -77,5 +77,10 @@ This guide provides easy installation steps for setting up CrowdSec on a Linux s
 ```
 sudo cscli decisions list
 ```
+ 6. **Optional: Integrate with CrowdSec Website**
+    - Create an account on the CrowdSec website.
+    - On the website, click on the "plus" icon at the top right of the screen to enroll a node.
+    - Copy and paste the displayed command on your CrowdSec server to send data to the website and collect data via Prometheus integrated into CrowdSec.
+
 ## Conclusion
 You have successfully installed and configured CrowdSec on your system. You can now enjoy enhanced security and protection against malicious activities.
