@@ -1,61 +1,78 @@
-# CrowdSec-Easy-Installation 
+# CrowdSec-Easy-Installation
 
-''' Pour les personnes souhaitant tester entre deux VM, n'oubliez pas de mettre vos VM en BRIDGE et de lire la 4 ème étape '''
+## Introduction
+This guide provides easy installation steps for setting up CrowdSec on a Linux system. CrowdSec is an open-source cybersecurity tool designed to protect servers, containers, and cloud workloads from malicious activities.
 
-I/ Rendez-vous sur le site CrowdSec et cliquer sur le linux
+### Prerequisites
+- Ensure that your system is running a compatible Linux distribution.
+- Have sudo privileges or access to the root account.
+- The system must be connected to the internet to download necessary packages.
 
-II/ Installer les référentiels 
- - Ceci permettra d'accéder aux derniers packages de Crowdsec et ses composants de correction.
-   -  Lancer la commande :
+## Installation Steps
 
-# sudo apt update
-# sudo apt install curl
-# sudo curl -s https://packagecloud.io/install/repositories/crowdsec/crowdsec/script.deb.sh | sudo bash
+### I. Visit the CrowdSec Website
+- Navigate to the CrowdSec website and select the Linux option.
 
+### II. Install Repositories
+1. Update the package list:
+    ```
+    sudo apt update
+    ```
+2. Install curl if not already installed:
+    ```
+    sudo apt install curl
+    ```
+3. Add the CrowdSec repositories:
+    ```
+    sudo curl -s https://packagecloud.io/install/repositories/crowdsec/crowdsec/script.deb.sh | sudo bash
+    ```
 
-III/ Installer le moteur Crowdsec
- - L'outil Crowdsec sans son Bouncer permet d'alerter si quelqu'un tente d'exploiter une faille de sécurité,
-   cependant il faudra avoir au préalable installer les collections/scénarios pour les logiciels en question.
-   
- - Entrer cette commande pour installer l'outil :
-   
-   # sudo apt install crowdsec
+### III. Install CrowdSec Engine
+1. Install the CrowdSec engine:
+    ```
+    sudo apt install crowdsec
+    ```
 
+### IV. Install a Bouncer
+1. Install the classic CrowdSec firewall bouncer (iptables):
+    ```
+    sudo apt install crowdsec-firewall-bouncer-iptables
+    ```
 
-III/ Installer un Bouncer 
- - Le bouncer permet de bloquer les tentatives de connexions
-    - Entrer la commande pour installer le bouncer classique pour bloqué les IP
-
-   # sudo apt install crowdsec-firewall-bouncer-iptables
-
-IV/ Configurer les détections d'alertes 
- - Rendez-vous dans le dossier :
-   
-   # cd /etc/crowdsec/parsers/s02-enrich
-
- -  Puis éditer le fichier whitelists.yaml
-
-   # sudo nano whitelists.yaml
-   
-   - Une fois dans le fichier YAML retirer les trois lignes de cidr qui sont les étendues ip autorisées
-
-     # Supprimez ceci :
-     cidr:
+### V. Configure Alerts Detection
+1. Navigate to the parser's directory:
+    ```
+    cd /etc/crowdsec/parsers/s02-enrich
+    ```
+2. Edit the `whitelists.yaml` file:
+    ```
+    sudo nano whitelists.yaml
+    ```
+3. Remove the CIDR lines for allowed IP ranges:
+    ```
+    cidr:
     - "192.168.0.0/16"
     - "10.0.0.0/8"
     - "172.16.0.0/12"
+    ```
 
-V/ TESTONS CROWDSEC : 
+## Testing CrowdSec
 
-Installer openssh-server si il n'est pas installé : 
+### VI. Test CrowdSec
+1. Install openssh-server if not already installed:
+    ```
+    sudo apt install openssh-server
+    ```
+2. Use another PC to test SSH connectivity by repeatedly running the SSH command:
+    ```
+    ssh 192.x.x.x
+    ```
+3. After several attempts, you will notice SSH login attempts being blocked, indicating successful detection and prevention by CrowdSec.
 
-# sudo apt install openssh-server
+4. To view detected alerts, use the following command:
+    ```
+    [Command to view alerts]
+    ```
 
-  - Suite à cela vous devez utiliser un autre pc pour testé ici le service SSH, on va requêter à plusieurs reprises et lancer jusqu'à 5 fois la commande :
-
-    # ssh 192.x.x.x
-
-- Vous pourez observer au bout d'un certain nombre de requête que vous ne pourrez pu saisir le mot de passe SSH car votre connexion à était bloqué et détecter par les alertes.
-
-  - Pour voir les alertes détecter :
-     # 
+## Conclusion
+You have successfully installed and configured CrowdSec on your system. You can now enjoy enhanced security and protection against malicious activities.
