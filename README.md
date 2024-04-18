@@ -74,9 +74,9 @@ This guide provides easy installation steps for setting up CrowdSec on a Ubuntu 
     sudo cscli alerts list
     ```
 5. To view  detected decisions by the bouncer, use the following command:
-```
-sudo cscli decisions list
-```
+    ```
+    sudo cscli decisions list
+    ```
  6. **Optional: Integrate with CrowdSec Website**
     - Create an account on the CrowdSec website.
     - On the website, click on the "plus" icon at the top right of the screen to enroll a node.
